@@ -1,55 +1,30 @@
-//import react 해야되는 거 아님?
-//import React from 'react';
+import React from 'react';
 
-import Potatos from './Potatos.js';
+class App extends React.Component {
+  state={value: ""};
 
-function Food({names,imgs}){
-  return (
-    <>
-  <h4>Name: {names}</h4>
-  <img src = {imgs}/>
-  </>
-    );
-}
-
-const foodILike = [
-  {
-    name: "Kimchi",
-    image:
-      "http://aeriskitchen.com/wp-content/uploads/2008/09/kimchi_bokkeumbap_02-.jpg"
-  },
-  {
-    name: "Samgyeopsal",
-    image:
-      "https://3.bp.blogspot.com/-hKwIBxIVcQw/WfsewX3fhJI/AAAAAAAAALk/yHxnxFXcfx4ZKSfHS_RQNKjw3bAC03AnACLcBGAs/s400/DSC07624.jpg"
-  },
-  {
-    name: "Bibimbap",
-    image:
-      "http://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/recipes/ck/12/03/bibimbop-ck-x.jpg?itok=RoXlp6Xb"
-  },
-  {
-    name: "Doncasu",
-    image:
-      "https://s3-media3.fl.yelpcdn.com/bphoto/7F9eTTQ_yxaWIRytAu5feA/ls.jpg"
-  },
-  {
-    name: "Kimbap",
-    image:
-      "http://cdn2.koreanbapsang.com/wp-content/uploads/2012/05/DSC_1238r-e1454170512295.jpg"
+  onChange = (event) =>{
+    let val = event.target.value;
+    console.log(val);
   }
-];
 
-function App() {
-  return(
-  <>
-  <div className="App">Hello!
-  </div>
-  <Food fav = 'kimchi'/>
-  <Potatos /><Potatos />
-  {foodILike.map(each=>console.log("hi"),<Food names={each.name} imgs={each.image}/>)}
-  </>);
-  //return은 하나의 div만 가능한 듯! 그래서 <></>로 묶음.
-}
+  enter = (event) => {
+    //this.setState({value: "hi"});
+    console.log(this.state.value);
+    console.log("enter");};
+
+  render(){
+    return(
+      //<form onsubmit={input.value}>
+        //<input></input>
+      //</form>
+      <>
+      <input value={this.state.value} onChange={this.onChange}></input>
+      <button onClick={this.enter}>enter</button>
+      </>
+    );
+  }
+
+  }
 
 export default App;
